@@ -1,5 +1,5 @@
 # deltaGLMtree
-- Automatic area stratification for CPUE standardization with delta-GLM
+- R package to implement automatic area stratification for CPUE standardization with delta-GLM
 - Area stratification is conducted so as to improve predictive ability based on an information criterion (AIC, AICc or BIC)
 - See [this article](https://www.sciencedirect.com/science/article/pii/S0165783619301626) for details
 
