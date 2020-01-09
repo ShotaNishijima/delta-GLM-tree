@@ -1,0 +1,21 @@
+citHeader("Please cite Hashimoto et al. 2019 (Fisheries Research) if using the package")
+
+citEntry(entry = "Article",
+  title        = "Spatiotemporal dynamics of the Pacific chub mackerel revealed by standardized abundance indices",
+  author       = personList(as.person("Midori Hashimoto"),
+                   as.person("Shota Nishijima"),
+                   as.person("Ryuji Yukami"),
+                   as.person("Chikako Watanabe"),
+                   as.person("Yasuhiro Kamimura"),
+                   as.person("Sho Furuichi"),
+                   as.person("Momoko Ichinokawa"),
+                   as.person("Hiroshi Okamura")),
+  journal      = "Fisheries Research",
+  year         = "2019",
+  volume       = "219",
+  pages        = "105315",
+  url          = "https://www.sciencedirect.com/science/article/pii/S0165783619301626",
+
+  textVersion  =
+  "Hashimoto M.*, Nishijima S.*, Yukami R., Watanabe C., Kamimura Y., Furuichi S. Ichinokawa M., and Okamura H. (2019) Spatiotemporal dynamics of the Pacific chub mackerel revealed by standardized abundance indices. Fisheries Research 219: 105315."
+)
