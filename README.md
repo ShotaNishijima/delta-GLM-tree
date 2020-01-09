@@ -8,7 +8,7 @@
 
 ```
 
-# install.package("devtools") # if not installing devtools
+# install.package("devtools") # if not installed
 devtools::install_github("ShotaNishijima/delta-GLM-tree")
 library(deltaGLMtree)
 
