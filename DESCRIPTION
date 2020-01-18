@@ -4,8 +4,7 @@ Title: Automatic Area Stratification for CPUE Standardization with delta-GLM
 Version: 0.1.0
 Authors@R: person("Shota","Nishijima",email="nishijimash@gmail.com",role=c("aut","cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: The package enables automatic area stratification based on an information criterion (AIC, AICc, or BIC) for CPUE standardization with delta-GLM (combined model of binomial and lognormal/gamma distributions).
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
