@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 inst/doc
+
+R/code_for_developer.R
