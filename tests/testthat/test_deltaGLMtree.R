@@ -1,6 +1,7 @@
 
 library(deltaGLMtree)
-options(na.action = "na.fail")
+# options(na.action = "na.fail")
+# library(tidyverse)
 
 context("test deltaGLMtree")
 test_that("test deltaGLMtree", {
@@ -16,7 +17,7 @@ test_that("test deltaGLMtree", {
   dat$Area <- area
   dat$CPUE01 <- ifelse(dat$CPUE==0,0,1)
 
-  dat_p = dat %>% filter(CPUE>0)
+  dat_p = dat[dat$CPUE>0,]
 
   binom1 = glm(CPUE01 ~ 0 + Year*Area + SST + I(SST^2), data = dat, family = binomial)
   gamma1 = glm(CPUE ~ 0 + Year+Area + SST + I(SST^2), data = dat_p, family = Gamma(log), control=glm.control(maxit=10000))
@@ -30,15 +31,10 @@ test_that("test deltaGLMtree", {
   testthat::expect_equivalent(gamma1$coefficients, gamma2$coefficients,tolerance=1.0e-6)
   testthat::expect_equivalent(lognorm1$coefficients, lognorm2$coefficients,tolerance=1.0e-6)
 
-  range(dat$Lon)
-  range(dat$Lat)
-
-
   testres = get(load(system.file("extdata","res_gamma.rda",package = "deltaGLMtree")))
-  res = deltaGLMtree(binom1, gamma2, criteria = "BIC", delta = 10, trend = TRUE, cat = TRUE, numeric = c("SST"),
-                     min.lon = 125,max.lon = 197.5, min.lat = 22.5,max.lat = 60)
-  # warnings()
-  # save(res,file="inst/extdata/res_gamma.rda")
+  res = try(deltaGLMtree(binom1, gamma2, criteria = "BIC", delta = 10, trend = TRUE, cat = FALSE, numeric = c("SST"),
+                     min.lon = 125,max.lon = 197.5, min.lat = 22.5,max.lat = 60))
+
   expect_equivalent(res$sep,testres$sep)
   expect_equivalent(res$objective,testres$objective)
   expect_equivalent(res$LonLat,testres$LonLat)
@@ -51,8 +47,8 @@ test_that("test deltaGLMtree", {
   expect_equivalent(res$best$y.trend,res$best$y.trend0/mean(res$best$y.trend0))
 
   testres2 = get(load(system.file("extdata","res_lognorm.rda",package = "deltaGLMtree")))
-  res2 = deltaGLMtree(binom1, lognorm2, criteria = "BIC", delta = 10, trend = TRUE, cat = TRUE, numeric = c("SST"),
-                     min.lon = 125,max.lon = 197.5, min.lat = 22.5,max.lat = 60)
+  res2 = try(deltaGLMtree(binom1, lognorm2, criteria = "BIC", delta = 10, trend = TRUE, cat = FALSE, numeric = c("SST"),
+                     min.lon = 125,max.lon = 197.5, min.lat = 22.5,max.lat = 60))
   # save(res2,file="inst/extdata/res_lognorm.rda")
   expect_equivalent(res2$sep,testres2$sep)
   expect_equivalent(res2$objective,testres2$objective)
