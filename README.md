@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ShotaNishijima/delta-GLM-tree.svg?branch=dev)](https://travis-ci.org/ShotaNishijima/delta-GLM-tree)
+
 # deltaGLMtree
 - R package to implement automatic area stratification for CPUE standardization with delta-GLM
 - Area stratification is conducted so as to improve predictive ability based on an information criterion (AIC, AICc or BIC)
