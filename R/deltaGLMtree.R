@@ -292,7 +292,7 @@ deltaGLMtree <- function(
       res2 <- try(update(posi.model, data = dat.posi), silent=TRUE)
     }
 
-    if(class(res1) == "try-error" || class(res2) == "try-error") {
+    if(class(res1)[1] == "try-error" || class(res2)[1] == "try-error") {
       obj <- Inf
     } else {
       res <- update_deltaGLM(res1, res2, trend=FALSE, remove=remove, data = dat.all, pull.LL = pull.LL)

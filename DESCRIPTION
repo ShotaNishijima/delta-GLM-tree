@@ -1,7 +1,7 @@
 Package: deltaGLMtree
 Type: Package
 Title: Automatic Area Stratification for CPUE Standardization with delta-GLM
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: person("Shota","Nishijima",email="nishijimash@gmail.com",role=c("aut","cre"))
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: The package enables automatic area stratification based on an information criterion (AIC, AICc, or BIC) for CPUE standardization with delta-GLM (combined model of binomial and lognormal/gamma distributions).
@@ -16,7 +16,11 @@ Suggests:
     speedglm,
     MuMIn,
     knitr,
-    rmarkdown
-RoxygenNote: 7.1.0
+    rmarkdown,
+    testthat,
+    tidyverse
+RoxygenNote: 7.1.1
 URL: https://github.com/ShotaNishijima/delta-GLM-tree
 VignetteBuilder: knitr
+Depends:
+    R (>= 2.10)
